@@ -1,0 +1,129 @@
+//###############################################
+// VARIABLES
+//###############################################
+
+$plateheight: 22%;
+$darkpink: #996F7C;
+$midpink: #AE8886;
+$lightpink: #D5AA9F;
+$lightestpink: #F8E0D8;
+$backcolour: lightgrey;
+
+//###############################################
+// GLOBALS
+//###############################################
+
+body{
+	// background-color:#BFC2C9;
+	background-color:$backcolour;
+	height:100%;
+	width:100%;
+}
+
+.page{
+	height:100%;
+	width:100%;
+}
+
+h1{
+	font-size:24px;
+}
+
+p{
+
+}
+
+//###############################################
+// NAMEPLATE
+//###############################################
+
+.nameplate{
+	position:absolute;
+	background-color:$lightestpink;
+	width:0px;
+	height:0px;
+	top:50%;
+	left:50%;
+	text-align:center;
+	overflow:hidden;
+	z-index:4;
+	.content{
+		position:relative;
+		width:90%;
+		margin:0 auto;
+		height:100%;
+		h1,p{
+			position:absolute;
+			top:0;
+			left:50%;
+			transform:translate(-50%,0);
+			display:none;
+		}
+	}
+}
+
+//###############################################
+// PLATES
+//###############################################
+
+.workplate{
+	background-color:$lightpink;
+	z-index:3;
+}
+
+.aboutplate{
+	background-color:$midpink;
+	z-index:2;
+}
+
+.contactplate{
+	background-color:$darkpink;
+	z-index:1;
+}
+
+.contentplate{
+	position:absolute;
+	height:$plateheight;
+	width:100%;
+	top:-300px;
+	left:0;
+	cursor:pointer;
+	&:hover{
+		.platetitle h1{
+			left:30px;
+			&::before{
+				content:"->";
+			}
+		}
+	}
+	&.active{
+		&:hover{
+			.platetitle h1{
+				left:0;
+				&::before{
+					content:"";
+				}
+			}
+		}
+	}
+}
+
+.platetitle{
+	position:relative;
+	width:90%;
+	margin:0 auto;
+	height:100%;
+	h1{
+		position:absolute;
+		top:50%;
+		left:0;
+		transition:left 0.3s ease;
+	}
+	// span{
+	// 	position:absolute;
+	// 	display:none;
+	// 	right:0;
+	// 	top:5%;
+	// }
+}
+
