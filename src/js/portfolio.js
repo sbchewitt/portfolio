@@ -28,6 +28,8 @@ $(document).ready(function(){
 	});
 
 	$(".workplate").click(function(){
+		$(".aboutcontent").fadeOut("1500");
+		$(".contactcontent").fadeOut("1500");
 		$(this).animate({height:fullHeight,top:"12%"},1500);
 		$(this).addClass("active");
 		$(".workplate .platetitle h1").animate({top:"5%"},1500,function(){
@@ -47,10 +49,12 @@ $(document).ready(function(){
 	});
 
 	$(".aboutplate").click(function(){
+		$(".contactcontent").fadeOut("1500");
 		$(this).animate({height:fullHeight,top:"24%"},1500);
 		$(this).addClass("active");
 		$(".aboutplate .platetitle h1").animate({top:"5%"},1500,function(){
 			$(".aboutplate .platetitle span").fadeIn("1500");
+			$(".aboutcontent").fadeIn("1500");
 		});
 		$(".nameplate").animate({height:smallHeight},1500);
 		$(".workplate").removeClass("active");
@@ -66,10 +70,12 @@ $(document).ready(function(){
 	});
 
 	$(".contactplate").click(function(){
+		$(".aboutcontent").fadeOut("1500");
 		$(this).animate({height:fullHeight,top:"36%"},1500);
 		$(this).addClass("active");
 		$(".contactplate .platetitle h1").animate({top:"5%"},1500,function(){
-			$(".contactplate .platetitle span").fadeIn("1500");		
+			$(".contactplate .platetitle span").fadeIn("1500");
+			$(".contactcontent").fadeIn("1500");		
 		});
 		$(".nameplate").animate({height:smallHeight},1500);
 		$(".workplate").removeClass("active");

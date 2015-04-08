@@ -119,6 +119,24 @@ p{
 		left:0;
 		transition:left 0.3s ease;
 	}
+	div{
+		position:absolute;
+		top:10%;
+		left:50%;
+		transform:translate(-50%,0);
+		display:none;
+		width:70%;
+		text-align:center;
+		li{
+			display:inline;
+			a{
+				text-decoration:none;
+			}
+			svg{
+				height:20px;
+			}
+		}
+	}
 	// span{
 	// 	position:absolute;
 	// 	display:none;
