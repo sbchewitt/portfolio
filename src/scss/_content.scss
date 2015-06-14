@@ -45,7 +45,7 @@
 // VARIABLES
 //###############################################
 
-$plateheight: 22%;
+$plateheight: 25%;
 $darkpink: #996F7C;
 $midpink: #AE8886;
 $lightpink: #D5AA9F;
@@ -56,11 +56,13 @@ $backcolour: lightgrey;
 // GLOBALS
 //###############################################
 
-body{
+html, body{
 	// background-color:#BFC2C9;
 	background-color: $backcolour;
 	height: 100%;
 	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .page{
@@ -134,14 +136,16 @@ body{
 
 .contentplate{
 	position: absolute;
+	top: -300px;
 	height: $plateheight;
 	width: 100%;
-	top: -300px;
-	left: 0;
-	cursor: pointer;
+	box-sizing: border-box;
+	padding-bottom: 0;
+  	padding-top: 1%;
+	transition: all 1s ease;
 	&:hover{
 		.platetitle h1{
-			left: 30px;
+			left: 10%;
 			&::before{
 				content: "->";
 			}
@@ -149,38 +153,35 @@ body{
 	}
 	&.active{
 		cursor: default;
+		height: 60%;
+		padding-top: 0.5%;
 		&:hover{
 			.platetitle h1{
-				left: 0;
+				left: 5%;
 				&::before{
 					content: "";
 				}
 			}
 		}
 	}
+	&.mini{
+		height: 10%;
+		padding-top: 0.5%;
+	}
 }
 
 .platetitle{
 	position: relative;
-	width: 90%;
-	margin: 0 auto;
+	width: 100%;
 	height: 100%;
+	cursor: pointer;
+	margin: 0 auto;
 	h1{
 		position: absolute;
 		top: 50%;
 		transform: translate(0,-50%);
-		left: 0;
+		left: 5%;
 		transition: left 0.3s ease;
-	}
-	.platecontent{
-		position: absolute;
-		// top: 10%;
-		left: 50%;
-		transform: translate(-50%,0);
-		display: none;
-		width: 70%;
-		text-align: center;
-		
 	}
 }
 
@@ -227,8 +228,10 @@ body{
 }
 
 .workplate{
-	background-color: $lightpink;
 	z-index: 3;
+	.platetitle{
+		background-color: $lightpink;
+	}
 }
 
 //###############################################
@@ -258,8 +261,10 @@ body{
 }
 
 .aboutplate{
-	background-color: $midpink;
 	z-index: 2;
+	.platetitle{
+		background-color: $midpink;
+	}
 }
 
 //###############################################
@@ -267,8 +272,10 @@ body{
 //###############################################
 
 .contactplate{
-	background-color: $darkpink;
 	z-index: 1;
+	.platetitle{
+		background-color: $darkpink;
+	}
 }
 
 .contactcontent{
