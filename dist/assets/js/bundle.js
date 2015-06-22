@@ -250,28 +250,65 @@ $(document).ready(function(){
     
 	    if ($(this).hasClass("active")){
 	      $(this).toggleClass("active");
+	      if ($(this).hasClass("workplate")){
+	      	$(".workcontent").fadeOut("fast");
+	      }
+	      else if($(this).hasClass("aboutplate")){
+	      	$(".aboutcontent").fadeOut("fast");
+	      }
+	      else{
+	      	$(".contactcontent").fadeOut("fast");
+	      }
 	      $(".contentplate").not(this).toggleClass("mini");
-	      $(".platetitle h1").animate({top:"50%"});
 	      $(".nameplate").animate({height:"25%"},1000);
 	    }
 	    
 	    else if ($(this).hasClass("mini")){
 	      $(this).removeClass("mini");
 	      $(this).addClass("active");
-	      $(".active .platetitle h1").animate({top:"40px"});
+	      if($(this).hasClass("workplate")){
+			setTimeout(function(){
+				$(".workcontent").fadeIn("fast");
+			}, 1200);
+			$(".aboutcontent").fadeOut("fast");	
+			$(".contactcontent").fadeOut("fast");			
+		  }
+		  else if ($(this).hasClass("aboutplate")){
+		  	setTimeout(function(){
+				$(".aboutcontent").fadeIn("fast");
+			}, 1200);
+		  	$(".workcontent").fadeOut("fast");
+		  	$(".contactcontent").fadeOut("fast");
+		  }
+		  else{
+		  	setTimeout(function(){
+				$(".contactcontent").fadeIn("fast");
+			}, 1200);
+			$(".workcontent").fadeOut("fast");
+			$(".aboutcontent").fadeOut("fast");
+		  }
 	      $(".contentplate").not(this).removeClass("active");
-	      $(".contentplate").not(this).addClass("mini",function(){
-	      	$(".contentplate").not(this).find(".platetitle h1").animate({top:"50%"});
-	      });
-	      
+	      $(".contentplate").not(this).addClass("mini");  
 	    }
 	    
 	    else{
-	      $(this).toggleClass("active","linear");
-	      $(".active .platetitle h1").animate({top:"40px"});
-	      $(".contentplate").not(this).toggleClass("mini",function(){
-	      	$(".contentplate").not(this).find(".platetitle h1").animate({top:"50%"});
-	      });
+	      $(this).toggleClass("active");
+		  if($(this).hasClass("workplate")){
+			setTimeout(function(){
+				$(".workcontent").fadeIn("fast");
+			}, 1200);				
+		  }
+		  else if($(this).hasClass("aboutlate")){
+			setTimeout(function(){
+				$(".aboutcontent").fadeIn("fast");
+			}, 1200);				
+		  }
+		  else{
+		  	setTimeout(function(){
+				$(".contactcontent").fadeIn("fast");
+			}, 1200);
+		  }
+	      $(".contentplate").not(this).toggleClass("mini");
 	      $(".nameplate").animate({height:"20%"},1000);
 	    }
 	});

@@ -155,6 +155,9 @@ html, body{
 		cursor: default;
 		height: 60%;
 		padding-top: 0.5%;
+		.platetitle h1{
+			top: 40px;
+		}
 		&:hover{
 			.platetitle h1{
 				left: 5%;
@@ -167,6 +170,9 @@ html, body{
 	&.mini{
 		height: 10%;
 		padding-top: 0.5%;
+		.platetitle h1{
+			top: 50%;
+		}
 	}
 }
 
@@ -181,7 +187,7 @@ html, body{
 		top: 50%;
 		transform: translate(0,-50%);
 		left: 5%;
-		transition: left 0.3s ease;
+		transition: left 0.3s ease, top 1.5s ease;
 	}
 }
 
@@ -196,11 +202,12 @@ html, body{
 	top: 50%;
 	width: 90%;
 	transform: translate(-45%,-50%);
+	display: none;
 	li{
 		width: 18%;
 		padding-bottom: 18%;
 		border:5px solid $darkpink;
-		opacity: 0;
+		// opacity: 0;
 		display: inline-block;
 		background-color: $lightestpink;
 		margin-right: 25px;
@@ -245,7 +252,7 @@ html, body{
 	transform: translate(-50%,-50%);
 	width: 70%;
 	text-align: center;
-	opacity: 0;
+	display: none;
 	p,a{
 		margin-bottom: 10px;
 	}
@@ -284,7 +291,7 @@ html, body{
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	opacity: 0;
+	display: none;
 	p{
 		margin-bottom: 10px;
 	}
