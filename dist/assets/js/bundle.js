@@ -298,7 +298,7 @@ $(document).ready(function(){
 				$(".workcontent").fadeIn("fast");
 			}, 1200);				
 		  }
-		  else if($(this).hasClass("aboutlate")){
+		  else if($(this).hasClass("aboutplate")){
 			setTimeout(function(){
 				$(".aboutcontent").fadeIn("fast");
 			}, 1200);				
