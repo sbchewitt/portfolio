@@ -51,6 +51,7 @@ $midpink: #AE8886;
 $lightpink: #D5AA9F;
 $lightestpink: #F8E0D8;
 $backcolour: lightgrey;
+$darkblue: #33426A;
 
 //###############################################
 // GLOBALS
@@ -136,7 +137,7 @@ html, body{
 
 .contentplate{
 	position: absolute;
-	top: -300px;
+	top: -100%;
 	height: $plateheight;
 	width: 100%;
 	box-sizing: border-box;
@@ -195,41 +196,203 @@ html, body{
 //###############################################
 // WORK PLATE
 //###############################################
-
 .workcontent{
-	width: 855px;
-	height: 425px;
-	display: none;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	li{
-		height: 210px;
-		width: 210px;
-		padding: 0;
-		float: left;
-		background-color: $lightestpink;
-		margin-right: 5px;
-		margin-bottom: 5px;
-		cursor: pointer;
-		&:nth-child(4){
-			margin-right: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	.slide-window {
+	  width: 100%;
+	  height: 100%;
+	  position: relative;
+	  overflow: hidden;
+	  .slide-container {
+		    width: 300%;
+		    height: 100%;
+		    position: absolute;
+		    top: 0;
+		    left: -100%;
+		    .outer-slide{
+			  width: 33.3333333333%;
+			  height: 100%;
+			  float: left;
+			  transition: all 0.3s ease;
+			  position: relative;
+			  	.buttonup, .buttondown{
+			  		width: 50px;
+			  		height: 50px;
+			  		background-color: $backcolour;
+			  		border-radius: 50%;
+			  		position: absolute;
+			  		left: 50px;
+			  		z-index: 10;
+			  		cursor: pointer;
+			  		transition: all 0.3s ease;
+			  		&:hover{
+			  			background-color: $darkblue;
+			  		}
+			  		&::before, &::after{
+				  	position: absolute;
+					left: 50%;
+				  	content: '';
+				  	width: 2px;
+				  	height: 15px;
+				  	background-color: #000;
+				  }
+			  	}
+			  	.buttonup{
+			  		top: 300px;
+			  		&::before, &::after{
+			  			top: 35%;
+			  		}
+			  		&::before{
+			  			transform: rotate(45deg);
+			  			transform-origin: center top;
+			  		}
+			  		&::after{
+			  			transform: rotate(-45deg);
+			  			transform-origin: center top;
+			  		}
+			  	}
+			  	.buttondown{
+			  		top: 400px;
+			  		&::before, &::after{
+			  			bottom: 35%;
+			  		}
+			  		&::before{
+			  			transform: rotate(45deg);
+			  			transform-origin: center bottom;
+			  		}
+			  		&::after{
+			  			transform: rotate(-45deg);
+			  			transform-origin: center bottom;
+			  		}
+			  	}
+			  	.work-description{
+			  		color: $backcolour;
+				  	width: 450px;
+				  	height: 200px;
+				  	position: absolute;
+				  	text-align: right;
+				  	right: 0;
+				  	bottom: 0;
+				  	z-index: 10;
+				  	p{
+				  		margin-right: 40px;
+				  	}
+				  	.slide-title{
+				  		margin-bottom: 5px;
+				  		font-size: 1.2em;
+				  	}
+				}
+				.inner-slide{
+					width: 100%;
+					height: 300%;
+					position: absolute;
+					top: -100%;
+					.slide{
+						width: 100%;
+						height: 33.33333333%;
+						transition: all 0.3s ease;
+					}
+				}
+			}
+			.slide1a{
+			  background: url('http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-Main-Image.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide1b{
+			  background: url('http://rushtravellifestyle.com/wp-content/uploads/2014/05/Miami-Memorial-Day.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide1c{
+			  background: url('http://www.mixxedfit.com/wp-content/uploads/2014/08/2013_10_Las-Vegas-Night-HD-Wallpaper3.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide2a{
+			  background: url('http://rushtravellifestyle.com/wp-content/uploads/2014/05/Miami-Memorial-Day.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide2b{
+			  background: url('http://www.mixxedfit.com/wp-content/uploads/2014/08/2013_10_Las-Vegas-Night-HD-Wallpaper3.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide2c{
+			  background: url('http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-Main-Image.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide3a{
+			  background: url('http://www.mixxedfit.com/wp-content/uploads/2014/08/2013_10_Las-Vegas-Night-HD-Wallpaper3.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide3b{
+			  background: url('http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-Main-Image.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
+			.slide3c{
+			  background: url('http://rushtravellifestyle.com/wp-content/uploads/2014/05/Miami-Memorial-Day.jpg');
+			  background-size: cover;
+			  background-position: center center;
+			}
 		}
-		&:nth-child(8){
-			margin-right: 0;
+		.button{
+		  width: 50px;
+		  height: 50px;
+		  border-radius: 50%;
+		  background-color: $backcolour;
+		  position: absolute;
+		  top: 50%;
+		  transform: translate(0, -50%);
+		  z-index: 10;
+		  transition: all 0.3s ease;
+		  cursor: pointer;
+		  &::before, &::after{
+		  	position: absolute;
+			top: 50%;
+		  	content: '';
+		  	width: 15px;
+		  	height: 2px;
+		  	background-color: #000;
+		  }
+		  &:hover{
+		  	background-color: $darkblue;
+		  }
 		}
-		&:nth-child(5){
-			margin-bottom: 0;
+		.next{
+		  right: -25px;
+		  &::before, &::after{
+		  	right: 55%;
+		  }
+		  &::before{
+		  	transform: rotate(40deg);
+		  	transform-origin: right center;
+		  }
+		  &::after{
+		  	transform: rotate(-40deg);
+		  	transform-origin: right center;
+		  }
 		}
-		&:nth-child(6){
-			margin-bottom: 0;
-		}
-		&:nth-child(7){
-			margin-bottom: 0;
-		}
-		&:nth-child(8){
-			margin-bottom: 0;
+		.previous{
+		  left: -25px;
+		  &::before, &::after{
+		  	left: 55%;
+		  }
+		  &::before{
+		  	transform: rotate(-40deg);
+		  	transform-origin: left center;
+		  }
+		  &::after{
+		  	transform: rotate(40deg);
+		  	transform-origin: left center;
+		  }
 		}
 	}
 }
@@ -238,6 +401,39 @@ html, body{
 	z-index: 3;
 	.platetitle{
 		background-color: $lightpink;
+	}
+	&.active{
+		cursor: default;
+		.platetitle{
+			cursor: default;
+		}
+	}
+}
+
+.close-button{
+	width: 30px;
+	height: 30px;
+	background-color: $backcolour;
+	border-radius: 50%;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 20;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	&::before{
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -52%);
+		color: #000;
+		font-size: 2em;
+		content:'\00d7';
+	}
+	&:hover{
+		background-color: $darkblue;
 	}
 }
 
