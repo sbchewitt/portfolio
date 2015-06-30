@@ -125,14 +125,14 @@ $(document).ready(function(){
 	//WORKPLATE SLIDER FUNCTIONALITY
 	$(".next").click(function(){
 	    var pageWidth = $(window).width();
-	    $(".slide-container").animate({left:"-=100%"},function(){
+	    $(".slide-container").animate({left:"-="+pageWidth},function(){
 	      $(".outer-slide:first-child").appendTo(".slide-container");
 	      $(".slide-container").css({"left":"+="+pageWidth});
 	    });
 	 });
 	$(".previous").click(function(){
 		var pageWidth = $(window).width();
-		$(".slide-container").animate({left:"+=100%"},function(){
+		$(".slide-container").animate({left:"+="+pageWidth},function(){
 		  $(".outer-slide:last-child").prependTo(".slide-container");
 		  $(".slide-container").css({"left":"-="+pageWidth});
 		});
@@ -157,6 +157,11 @@ $(document).ready(function(){
 			$(targetSlides).prependTo($(targetSlider));
 			$(targetSlider).css({"top":"-="+slideHeight+"px"});
 		});
+	});
+
+	$(window).resize(function(){
+		var slideWindowWidth = $(window).width();
+		$(".slide-container").css({"left":"-"+slideWindowWidth+"px"});
 	});
 
 });
