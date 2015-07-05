@@ -225,19 +225,20 @@ $(document).ready(function(){
 	
 	
 	//PAGE LOAD ANIMATION
-	$(".nameplate").animate({height:"250px",width:"500px",marginTop:"-125px",marginLeft:"-250px"},500,"easeOutBack",function(){
+	$(".nameplate").animate({height:"250px",width:"630px",marginTop:"-125px",marginLeft:"-315px"},500,"easeOutBack",function(){
 		$(".content h1").animate({top:"40%",opacity:1},500, 'easeOutBounce', function(){
 			$(".content p").animate({opacity:1},500,function(){
 				$(".nameplate").animate({top:"125px"},500,function(){
 					$(".content h1").animate({top:"30%"},500);
-					$(".content p").animate({top:"30%",marginTop:"40px"},500);
+					$(".content p").animate({top:"40%",marginTop:"40px"},500);
 					$(".nameplate").animate({height:originalHeight,width:"100%",marginLeft:"-50%"},500,"easeOutSine",function(){
 						$(".content h1").addClass("animated");
 						$(".content p").addClass("animated");
+						$(".big-name").fadeIn("fast");
 						$(".workplate").animate({top:"25%"},500,function(){
 							$(".aboutplate").animate({top:"50%"},500, function(){
 								$(".contactplate").animate({top:"75%"},500, function(){
-									$(".nameplate").delay(500).animate({opacity:"1"},0,positions);
+									$(".nameplate").delay(500).animate({opacity:"1"},500,positions);
 								});
 							});
 						});
@@ -270,7 +271,7 @@ $(document).ready(function(){
 	      if($(this).hasClass("workplate")){
 			setTimeout(function(){
 				$(".workcontent").fadeIn("fast", function(){
-					$(".workplate .platetitle h1").css({"color":"lightgrey","z-index":"10"});
+					// $(".workplate .platetitle h1").css({"color":"lightgrey","z-index":"10"});
 				});
 			}, 1200);
 			$(".aboutcontent").fadeOut("fast");	
@@ -281,7 +282,7 @@ $(document).ready(function(){
 				$(".aboutcontent").fadeIn("fast");
 			}, 1200);
 		  	$(".workcontent").fadeOut("fast", function(){
-		  		$(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
+		  		// $(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
 		  	});
 		  	$(".contactcontent").fadeOut("fast");
 		  }
@@ -290,7 +291,7 @@ $(document).ready(function(){
 				$(".contactcontent").fadeIn("fast");
 			}, 1200);
 			$(".workcontent").fadeOut("fast", function(){
-				$(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
+				// $(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
 			});
 			$(".aboutcontent").fadeOut("fast");
 		  }
@@ -303,7 +304,7 @@ $(document).ready(function(){
 		  if($(this).hasClass("workplate")){
 			setTimeout(function(){
 				$(".workcontent").fadeIn("fast", function(){
-					$(".workplate .platetitle h1").css({"color":"lightgrey","z-index":"10"});
+					// $(".workplate .platetitle h1").css({"color":"lightgrey","z-index":"10"});
 				});
 			}, 1200);				
 		  }
@@ -326,7 +327,7 @@ $(document).ready(function(){
 	$(".close-button").click(function(){
 		var plate = $(".close-button").closest(".contentplate");
 		$(".workcontent").fadeOut("fast" ,function(){
-			$(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
+			//$(".workplate .platetitle h1").css({"color":"#000","z-index":"3"});
 			$(".contentplate").removeClass("active");
 			$(".contentplate").removeClass("mini");
 		});
@@ -353,19 +354,26 @@ $(document).ready(function(){
 	//WORKPLATE SLIDER FUNCTIONALITY
 	//OUTER SLIDER
 	$(".buttonup").click(function(){
+		windowHeight = $(window).height();
+		slideHeight = (77/100) * windowHeight;
+		console.log(windowHeight);
 		var buttonParent = $(this).parent();
 		var targetSlider = $(buttonParent).find(".inner-slide");
 		var targetSlides = $(targetSlider).find(".slide:first-child");
-		$(targetSlider).animate({top:"-="+slideHeight+"px"},function(){
+		$(targetSlider).animate({"top":"-="+slideHeight+"px"},function(){
+			
 			$(targetSlides).appendTo($(targetSlider));
 			$(targetSlider).css({"top":"+="+slideHeight+"px"});
 		});
 	});
 	$(".buttondown").click(function(){
+		windowHeight = $(window).height();
+		slideHeight = (77/100) * windowHeight;
 		var buttonParent = $(this).parent();
 		var targetSlider = $(buttonParent).find(".inner-slide");
 		var targetSlides = $(targetSlider).find(".slide:last-child");
-		$(targetSlider).animate({top:"+="+slideHeight+"px"},function(){
+		$(targetSlider).animate({"top":"+="+slideHeight+"px"},function(){
+			
 			$(targetSlides).prependTo($(targetSlider));
 			$(targetSlider).css({"top":"-="+slideHeight+"px"});
 		});

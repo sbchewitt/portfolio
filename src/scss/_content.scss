@@ -50,6 +50,8 @@ $darkpink: #996F7C;
 $midpink: #AE8886;
 $lightpink: #D5AA9F;
 $lightestpink: #F8E0D8;
+$textcolor: #3F2730;
+$textpink: #F8E0D8;
 $backcolour: lightgrey;
 $darkblue: #33426A;
 
@@ -64,6 +66,7 @@ html, body{
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	color: $textcolor;
 }
 
 .page{
@@ -105,19 +108,39 @@ html, body{
 	text-align: center;
 	overflow: hidden;
 	z-index: 4;
+	.big-name{
+		width: 100%;
+		position: absolute;
+		font-size: 7em;
+		color: #fff;
+		display: none;
+		left: -5%;
+		height: 100%;
+		top: -15%;
+		font-family: "scriptinaregular";
+		opacity: 0.5;
+		letter-spacing: -2px;
+		text-align: left;
+		span{
+			margin-left: -75px;
+		}
+	}
 	.content{
 		position: relative;
 		width: 90%;
 		margin: 0 auto;
 		height: 100%;
-		h1,p{
+		h1{
+			font-size: 2.8em;
+			letter-spacing: -2px;
+		}
+		p, h1{
 			position: absolute;
 			top: 0;
 			left: 50%;
 			transform: translate(-50%,0);
 			display: inline;
 			opacity: 0;
-			// background: grey;
 			text-align: left;
 			transition: left 1s ease, transform 1s ease;
 			&.animated{
@@ -126,7 +149,8 @@ html, body{
 			}
 		}
 		p{
-			top: 60%;
+			top: 65%;
+			font-size: 1.125em;
 		}
 	}
 }
@@ -147,9 +171,16 @@ html, body{
 	&:hover{
 		.platetitle h1{
 			left: 10%;
-			&::before{
-				content: "->";
+			color: $textpink;
+		}
+		.platetitle-arrow{
+			&::before, &::after{
+				width: 42px;
+				background-color: $textpink;
 			}
+		}
+		.platetitle-arrow-small{
+			left: 5.6%;
 		}
 	}
 	&.active{
@@ -159,12 +190,12 @@ html, body{
 		.platetitle h1{
 			top: 40px;
 		}
+		.platetitle-arrow, .platetitle-arrow-small{
+			display: none;
+		}
 		&:hover{
 			.platetitle h1{
-				left: 5%;
-				&::before{
-					content: "";
-				}
+				left: 10%;
 			}
 		}
 	}
@@ -187,12 +218,70 @@ html, body{
 		position: absolute;
 		top: 50%;
 		transform: translate(0,-50%);
-		left: 5%;
-		transition: left 0.3s ease, top 1.5s ease;
+		left: 8%;
+		transition: color 0.3s ease, left 0.3s ease, top 1.5s ease;
+		font-size: 2.25em;
 	}
 }
 
+.platetitle-arrow{
+	width: 30px;
+	height: 60px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	transform: translate(0, -50%);
+	&::before, &::after{
+		width: 17px;
+		height: 2px;
+		background-color: $textcolor;
+		content: '';
+		position: absolute;
+		top: 50%;
+		transition: all 0.3s ease;
+	}
+	&::before{
+		transform: rotate(45deg);
+		transform-origin: right center;
+		margin-top: 1px;
+	}
+	&::after{
+		transform: rotate(-45deg);
+		transform-origin: right center;
+		margin-bottom: 1px;
+	}
+}
 
+.platetitle-arrow-small{
+	width: 30px;
+	height: 60px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: -10%;
+	transform: translate(0, -50%);
+	transition: all 0.3s ease;
+	&::before, &::after{
+		width: 17px;
+		height: 2px;
+		background-color: $textpink;
+		content: '';
+		position: absolute;
+		top: 50%;
+		transition: all 0.3s ease;
+	}
+	&::before{
+		transform: rotate(45deg);
+		transform-origin: right center;
+		margin-top: 1px;
+	}
+	&::after{
+		transform: rotate(-45deg);
+		transform-origin: right center;
+		margin-bottom: 1px;
+	}
+}
 //###############################################
 // WORK PLATE
 //###############################################
