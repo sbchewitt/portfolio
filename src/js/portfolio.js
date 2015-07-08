@@ -160,67 +160,46 @@ $(document).ready(function(){
 		  $(".slide-container").css({"left":"-="+pageWidth});
 		});
 	});
-
-	// function slider(){
-	// 	windowHeight = $(window).height();
-	// 	slideHeight = (77/100) * windowHeight;
-	// 	while ($(".workplate").hasClass("active")){
-	// 		setTimeout(function(){
-	// 	    $(".inner-slide").animate({"top":"-="+slideHeight+"px"},function(){
-	// 			$(".inner-slide").find(".slide:first-child").appendTo($(".inner-slide"));
-	// 			$(".inner-slide").css({"top":"+="+slideHeight+"px"});
-	// 		});
-	// 	  }, 2000);
-	// 	}	
-	// };
-
-	// slider();
-
-	//WORKPLATE SLIDER FUNCTIONALITY
-	//OUTER SLIDER
-	// $(".buttonup").click(function(){
-	// 	windowHeight = $(window).height();
-	// 	slideHeight = (77/100) * windowHeight;
-	// 	console.log(windowHeight);
-	// 	var buttonParent = $(this).parent();
-	// 	var targetSlider = $(buttonParent).find(".inner-slide");
-	// 	var targetSlides = $(targetSlider).find(".slide:first-child");
-	// 	$(targetSlider).animate({"top":"-="+slideHeight+"px"},function(){
-			
-	// 		$(targetSlides).appendTo($(targetSlider));
-	// 		$(targetSlider).css({"top":"+="+slideHeight+"px"});
-	// 	});
-	// });
 	
 	var isSliderOn = true;
 
 	function slider(){
 		if (isSliderOn){
-			windowHeight = $(window).height();
-			slideHeight = (77/100) * windowHeight;
 			var Parent = $(".outer-slide:nth-child(2)");
 			var targetSlider = $(Parent).find(".inner-slide");
 			var targetSlides = $(targetSlider).find(".slide:first-child");
+			slideHeight = $(".workcontent").height();
 			$(targetSlider).delay(2000).animate({"top":"-="+slideHeight+"px"},function(){
 				
 				$(targetSlides).appendTo($(targetSlider));
 				$(targetSlider).css({"top":"+="+slideHeight+"px"});
-
-				slider();
+				$("body").delay(100).animate({"opacity":1},function(){
+					slider();
+				});
+				
 			});
 		}
 		
 	};
 
+	var beingResized = true;
+
 	//WORKPLATE SLIDER ON WINDOW RESIZE
 	$(window).resize(function(){
+		isSliderOn = false;
 		var slideWindowWidth = $(window).width();
 		$(".slide-container").css({"left":"-"+slideWindowWidth+"px"});
-
-		windowHeight = $(window).height();
-		slideHeight = (77/100) * windowHeight;
-		$(".inner-slide").css({"top":"-"+slideHeight+"px"});
+		slideHeight = $(".workcontent").height();
+		$(".inner-slide").css({"top":"-"+ slideHeight +"px"});
 		$(".slide").css({"height":slideHeight+"px"});
+		if (beingResized){
+			beingResized = false;
+			setTimeout(function(){
+				isSliderOn = true;
+				slider();
+				beingResized = true;
+			}, 2100);
+		}
 	});
 
 });

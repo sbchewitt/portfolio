@@ -309,71 +309,23 @@ html, body{
 			  float: left;
 			  transition: all 0.3s ease;
 			  position: relative;
-			  	.buttonup, .buttondown{
-			  		width: 50px;
-			  		height: 50px;
-			  		background-color: $backcolour;
-			  		border-radius: 50%;
-			  		position: absolute;
-			  		left: 50px;
-			  		z-index: 10;
-			  		cursor: pointer;
-			  		transition: all 0.3s ease;
-			  		&:hover{
-			  			background-color: $darkblue;
-			  		}
-			  		&::before, &::after{
-				  	position: absolute;
-					left: 50%;
-				  	content: '';
-				  	width: 2px;
-				  	height: 15px;
-				  	background-color: #000;
-				  }
-			  	}
-			  	.buttonup{
-			  		top: 300px;
-			  		&::before, &::after{
-			  			top: 35%;
-			  		}
-			  		&::before{
-			  			transform: rotate(45deg);
-			  			transform-origin: center top;
-			  		}
-			  		&::after{
-			  			transform: rotate(-45deg);
-			  			transform-origin: center top;
-			  		}
-			  	}
-			  	.buttondown{
-			  		top: 400px;
-			  		&::before, &::after{
-			  			bottom: 35%;
-			  		}
-			  		&::before{
-			  			transform: rotate(45deg);
-			  			transform-origin: center bottom;
-			  		}
-			  		&::after{
-			  			transform: rotate(-45deg);
-			  			transform-origin: center bottom;
-			  		}
-			  	}
 			  	.work-description{
 			  		color: $textlightpink;
-				  	width: 450px;
+				  	width: 460px;
 				  	height: 200px;
 				  	position: absolute;
 				  	text-align: right;
-				  	right: 0;
-				  	bottom: 0;
+				  	right: 95px;
+				  	bottom: 50px;
 				  	z-index: 10;
-				  	p{
-				  		margin-right: 40px;
-				  	}
 				  	.slide-title{
-				  		margin-bottom: 5px;
-				  		font-size: 1.2em;
+				  		margin-bottom: 25px;
+				  		font-size: 1.5em;
+				  		text-transform: uppercase;
+				  	}
+				  	.slide-text{
+				  		padding-top: 25px;
+				  		border-top: 1px solid $lightestpink;
 				  	}
 				}
 				.inner-slide{
@@ -533,25 +485,77 @@ html, body{
 //###############################################
 
 .aboutcontent{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	width: 70%;
-	text-align: center;
+	width: 100%;
 	display: none;
-	p,a{
-		margin-bottom: 10px;
+	color: $textlightpink;
+	.column-one, .column-two{
+		width: 50%;
+		height: 100%;
+		margin-top: 140px;
+		display: inline-block;
 	}
-	li{
-		display: inline;
+	.column-one{
+		// margin-right: 75px;
+		float: left;
+		.column-one-text{
+			border-bottom: 1px solid $lightestpink;
+			padding-bottom: 55px;
+			margin-bottom: 30px;
+			margin-left: 15%;
+			margin-right: 7.5%;
+		}
 		a{
 			text-decoration: none;
-		}
-		svg{
-			height: 20px;
+			font-family:"comfortaaregular";
+			font-size:1.5em;
+			color: $textlightpink;
+			padding-left: 15%;
 		}
 	}
+	.column-two{
+		float: right;
+		p{
+			margin-left: 7.5%;
+			margin-right: 7.5%;
+			margin-bottom: 16px;
+		}
+		.column-two-text{
+			border-bottom: 1px solid $lightestpink;
+			padding-bottom: 55px;
+		}
+		ul{
+			margin-left: 7.5%;
+			li{
+				display: inline;
+				a{
+					text-decoration: none;
+				}
+				svg{
+					fill: $textpink;
+				}
+			}
+		}
+		
+	}
+	// position: absolute;
+	// left: 50%;
+	// top: 50%;
+	// transform: translate(-50%,-50%);
+	// width: 70%;
+	// text-align: center;
+	// display: none;
+	// p,a{
+	// 	margin-bottom: 10px;
+	// }
+	// li{
+	// 	display: inline;
+	// 	a{
+	// 		text-decoration: none;
+	// 	}
+	// 	svg{
+	// 		height: 20px;
+	// 	}
+	// }
 }
 
 .aboutplate{
