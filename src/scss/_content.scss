@@ -503,11 +503,11 @@ html, body{
 			margin-bottom: 30px;
 			margin-left: 15%;
 			margin-right: 7.5%;
+			line-height: 1.5em;
 		}
 		a{
 			text-decoration: none;
 			font-family:"comfortaaregular";
-			font-size:1.5em;
 			color: $textlightpink;
 			padding-left: 15%;
 		}
@@ -517,7 +517,8 @@ html, body{
 		p{
 			margin-left: 7.5%;
 			margin-right: 7.5%;
-			margin-bottom: 16px;
+			margin-bottom: 20px;
+			line-height: 1.5em;
 		}
 		.column-two-text{
 			border-bottom: 1px solid $lightestpink;
@@ -537,25 +538,6 @@ html, body{
 		}
 		
 	}
-	// position: absolute;
-	// left: 50%;
-	// top: 50%;
-	// transform: translate(-50%,-50%);
-	// width: 70%;
-	// text-align: center;
-	// display: none;
-	// p,a{
-	// 	margin-bottom: 10px;
-	// }
-	// li{
-	// 	display: inline;
-	// 	a{
-	// 		text-decoration: none;
-	// 	}
-	// 	svg{
-	// 		height: 20px;
-	// 	}
-	// }
 }
 
 .aboutplate{
@@ -577,42 +559,121 @@ html, body{
 }
 
 .contactcontent{
-	position: absolute;
-	text-align: center;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
+	width: 100%;
 	display: none;
-	p{
-		margin-bottom: 10px;
+	color: $textlightpink;
+	.column-one, .column-two{
+		width: 50%;
+		height: 100%;
+		margin-top: 140px;
+		display: inline-block;
 	}
-	form{
-		text-align: center;
+	.column-one{
+		float: left;
+		.column-one-text{
+			margin-left: 15%;
+			margin-right: 7.5%;
+			line-height: 1.5em;
+			border-bottom: 1px solid $lightestpink;
+			padding-bottom: 55px;
+			margin-bottom: 30px;
+		}
+		a{
+			text-decoration: none;
+			font-family:"comfortaaregular";
+			color: $textlightpink;
+			padding-left: 15%;
+			font-size: 1.5em;
+			span{
+				font-family: 'Courier';
+				font-style: italic;
+			}
+			svg{
+				fill: $textpink;
+				margin-right: 10px;
+			}
+		}
 	}
-	fieldset{
-		margin: 0 0 10px 0;
+	.column-two{
+		float: right;
 		label{
+			font-size: 1.25em;
 			font-family: "comfortaaregular";
-			width: 50%;
+			color: $textlightpink;
+			width: 30%;
 			float: left;
 			text-align: right;
+			display: block;
 			margin-right: 0.5em;
-			display: block
+			margin-top: 8px;
 		}
 		input{
+			width: 400px;
 			float: left;
-			width: 40%;
+			height: 35px;
+			background-color: $textpink;
+			border: none;
+			margin-bottom: 10px;
 		}
 		textarea{
+			width: 400px;
 			float: left;
-			width: 40%;
-			height: 100px;
+			height: 130px;
+			background-color: $textpink;
+			border: none;
+			margin-bottom: 10px;
 		}
 		.email-button{
-			width: 20%;
-			position: absolute;
-			left: 50%;
-			transform: translate(-50%,0);
+			width: 110px;
+			float: left;
+			height: 50px;
+			background-color: $textcolor;
+			color: $textpink;
+			font-family: "comfortaaregular";
+			font-size: 1.375em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			&:hover{
+				background-color: $midpink;
+			}
 		}
 	}
+	// position: absolute;
+	// text-align: center;
+	// left: 50%;
+	// top: 50%;
+	// transform: translate(-50%,-50%);
+	// display: none;
+	// p{
+	// 	margin-bottom: 10px;
+	// }
+	// form{
+	// 	text-align: center;
+	// }
+	// fieldset{
+	// 	margin: 0 0 10px 0;
+	// 	label{
+	// 		font-family: "comfortaaregular";
+	// 		width: 50%;
+	// 		float: left;
+	// 		text-align: right;
+	// 		margin-right: 0.5em;
+	// 		display: block
+	// 	}
+	// 	input{
+	// 		float: left;
+	// 		width: 40%;
+	// 	}
+	// 	textarea{
+	// 		float: left;
+	// 		width: 40%;
+	// 		height: 100px;
+	// 	}
+	// 	.email-button{
+	// 		width: 20%;
+	// 		position: absolute;
+	// 		left: 50%;
+	// 		transform: translate(-50%,0);
+	// 	}
+	// }
 }

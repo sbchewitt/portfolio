@@ -131,6 +131,14 @@ $(document).ready(function(){
 	    }
 	});
 
+	$(".contentplate a").click(function(e) {
+        e.stopPropagation();
+    });
+
+    $(".contentplate form").click(function(e) {
+        e.stopPropagation();
+    });
+
 	//WORKPLATE CLOSE INTERACTION
 	$(".close-button").click(function(){
 		isSliderOn = false;
