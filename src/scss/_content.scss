@@ -95,6 +95,10 @@ html, body{
 	font-family:"comfortaaregular";
 }
 
+.svg-sprite{
+	display: none;
+}
+
 //###############################################
 // NAMEPLATE
 //###############################################
@@ -491,7 +495,7 @@ html, body{
 	.column-one, .column-two{
 		width: 50%;
 		height: 100%;
-		margin-top: 140px;
+		margin-top: 100px;
 		display: inline-block;
 	}
 	.column-one{
@@ -533,6 +537,9 @@ html, body{
 				}
 				svg{
 					fill: $textpink;
+					width: 35px;
+					height: 35px;
+					margin-right: 15px;
 				}
 			}
 		}
@@ -565,7 +572,7 @@ html, body{
 	.column-one, .column-two{
 		width: 50%;
 		height: 100%;
-		margin-top: 140px;
+		margin-top: 100px;
 		display: inline-block;
 	}
 	.column-one{
@@ -582,8 +589,12 @@ html, body{
 			text-decoration: none;
 			font-family:"comfortaaregular";
 			color: $textlightpink;
-			padding-left: 15%;
+			margin-left: 15%;
 			font-size: 1.5em;
+			p{
+				display: inline-block;
+				margin-top: 2px;
+			}
 			span{
 				font-family: 'Courier';
 				font-style: italic;
@@ -591,6 +602,9 @@ html, body{
 			svg{
 				fill: $textpink;
 				margin-right: 10px;
+				width: 28px;
+				height: 28px;
+				vertical-align: middle;
 			}
 		}
 	}
@@ -605,7 +619,7 @@ html, body{
 			text-align: right;
 			display: block;
 			margin-right: 0.5em;
-			margin-top: 8px;
+			margin-top: 12px;
 		}
 		input{
 			width: 400px;
@@ -614,6 +628,8 @@ html, body{
 			background-color: $textpink;
 			border: none;
 			margin-bottom: 10px;
+			padding: 5px;
+			font-size: 16px;
 		}
 		textarea{
 			width: 400px;
@@ -622,6 +638,8 @@ html, body{
 			background-color: $textpink;
 			border: none;
 			margin-bottom: 10px;
+			padding: 5px;
+			font-size: 16px;
 		}
 		.email-button{
 			width: 110px;
@@ -637,43 +655,9 @@ html, body{
 				background-color: $midpink;
 			}
 		}
+		.sent-message{
+			text-align: center;
+			font-size: 1.25em;
+		}
 	}
-	// position: absolute;
-	// text-align: center;
-	// left: 50%;
-	// top: 50%;
-	// transform: translate(-50%,-50%);
-	// display: none;
-	// p{
-	// 	margin-bottom: 10px;
-	// }
-	// form{
-	// 	text-align: center;
-	// }
-	// fieldset{
-	// 	margin: 0 0 10px 0;
-	// 	label{
-	// 		font-family: "comfortaaregular";
-	// 		width: 50%;
-	// 		float: left;
-	// 		text-align: right;
-	// 		margin-right: 0.5em;
-	// 		display: block
-	// 	}
-	// 	input{
-	// 		float: left;
-	// 		width: 40%;
-	// 	}
-	// 	textarea{
-	// 		float: left;
-	// 		width: 40%;
-	// 		height: 100px;
-	// 	}
-	// 	.email-button{
-	// 		width: 20%;
-	// 		position: absolute;
-	// 		left: 50%;
-	// 		transform: translate(-50%,0);
-	// 	}
-	// }
 }

@@ -419,4 +419,42 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".email-button").click(function(e){
+		e.preventDefault();
+
+		$('.contact-form-wrap').slideUp();
+
+		var postdata = {};
+		postdata.name = $("#yourname").val();
+		postdata.email = $("#youremail").val();
+		postdata.subject = $("#yoursubject").val();
+		postdata.message = $("#yourmessage").val();
+
+		$.ajax({
+		  type: 'POST',
+		  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+		  data: {
+		    'key': 'toYSNc2iNKup8NQC8-P7OA',
+		    'message': {
+		      'from_email': postdata.email,
+		      'to': [
+		          {
+		            'email': 'hello@sarahs.website',
+		            'name': 'Sarah',
+		            'type': 'to'
+		          }
+		        ],
+		      'autotext': 'true',
+		      'subject': postdata.subject,
+		      'html': postdata.message
+		    }
+		  }
+		 }).done(function(response) {
+		   console.log(response); // if you're into that sorta thing
+		   $('.contactcontent .column-two').html('<p class="sent-message">Message Sent - thanks</p>');
+
+		 });
+
+	});
+	
 });
