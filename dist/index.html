@@ -3,6 +3,7 @@
 	<title>Portfolio</title>
 	<link type="text/css" rel="stylesheet" href="assets/css/bundle.css">
 	<script src="assets/js/bundle.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -202,26 +203,30 @@
 					</div>
 					<div class="column-two">
 						<form class="contact-form-wrap" name="contact_form">
-						<fieldset>
-							<label for="yourname">NAME:</label>
-							<input type="text" name="yourname" id="yourname" class="placeholder-backup small-input" required>
-						</fieldset>
-						<fieldset class="contacts-form-input">
-							<label for="youremail" class="email-request">EMAIL:</label>
-							<input type="email" name="youremail" id="youremail" class="placeholder-backup small-input" required>
-						</fieldset>
-						<fieldset>
-							<label for="yoursubject">SUBJECT:</label>
-							<input type="text" name="yoursubject" id="yoursubject" class="placeholder-backup small-input">
-						</fieldset>
-						<fieldset class="contacts-form-input">
-							<label for="yourmessage">MESSAGE:</label>
-							<textarea class="large-input" name="yourmessage" id="yourmessage"></textarea> 
-						</fieldset>
-						<fieldset class="contacts-form-input form-button">
-							<label for="sendemail"></label>
-							<input type="submit" name="sendemail" value="SEND" class="email-button">
-						</fieldset>
+						<div class="left-fields">
+							<fieldset>
+								<label for="yourname">NAME:</label>
+								<input type="text" name="yourname" id="yourname" class="placeholder-backup small-input" required>
+							</fieldset>
+							<fieldset class="contacts-form-input">
+								<label for="youremail" class="email-request">EMAIL:</label>
+								<input type="email" name="youremail" id="youremail" class="placeholder-backup small-input" required>
+							</fieldset>
+							<fieldset>
+								<label for="yoursubject">SUBJECT:</label>
+								<input type="text" name="yoursubject" id="yoursubject" class="placeholder-backup small-input">
+							</fieldset>
+						</div>
+						<div class="right-fields">
+							<fieldset class="contacts-form-input message-field">
+								<label for="yourmessage">MESSAGE:</label>
+								<textarea class="large-input" name="yourmessage" id="yourmessage"></textarea> 
+							</fieldset>
+							<fieldset class="contacts-form-input form-button">
+								<label for="sendemail" class="email-label"></label>
+								<input type="submit" name="sendemail" value="SEND" class="email-button">
+							</fieldset>
+						</div>
 					</form>
 					</div>
 				</div>

@@ -288,6 +288,73 @@ html, body{
 		margin-bottom: 1px;
 	}
 }
+
+body.body-active{
+	h1{
+		transition: none;
+	}
+	.contentplate{
+		position: static;
+		.platetitle{
+			.platetitle-arrow, .platetitle-arrow-small{
+				display: none;
+			}
+			h1{
+				top: 40px;
+				color: $textpink;
+			}
+		}
+		&:hover{
+			h1{
+				left: 8%;
+			}
+		}
+	}
+	.workplate{
+		height: 450px;
+		margin-top: 150px;
+
+		h1{
+			top: 40px;
+			color: $textpink;
+			display: block;
+			z-index: 3;
+		}
+		.workcontent{
+			cursor: default;
+			.close-button{
+				display: none;
+			}
+		}
+	}
+	.aboutplate, .contactplate{
+		height: auto;
+		overflow: auto;
+		.aboutcontent, .contactcontent{
+			height: auto;
+			overflow: auto;
+			padding-bottom: 10px;
+			cursor: default;
+		}
+	}
+	.aboutplate{
+		.column-one, .column-two{
+			margin-bottom: 20px;
+		}
+	}
+	.contactplate{
+		.column-two{
+			margin-bottom: 20px;
+		}
+	}
+	.workplate, .aboutplate, .contactplate{
+		opacity: 0;
+		transition: none;
+	}
+	.workcontent, .aboutcontent, .contactcontent{
+		display: block;
+	}
+}
 //###############################################
 // WORK PLATE
 //###############################################
@@ -360,17 +427,17 @@ html, body{
 			  background-position: center center;
 			}
 			.slide2a{
-			  background: url('http://rushtravellifestyle.com/wp-content/uploads/2014/05/Miami-Memorial-Day.jpg');
+			  background: url('../img/gbm-01.jpg');
 			  background-size: cover;
 			  background-position: center center;
 			}
 			.slide2b{
-			  background: url('http://www.mixxedfit.com/wp-content/uploads/2014/08/2013_10_Las-Vegas-Night-HD-Wallpaper3.jpg');
+			  background: url('../img/gbm-02.jpg');
 			  background-size: cover;
 			  background-position: center center;
 			}
 			.slide2c{
-			  background: url('http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-Main-Image.jpg');
+			  background: url('../img/gbm-02.jpg');
 			  background-size: cover;
 			  background-position: center center;
 			}
@@ -620,6 +687,9 @@ html, body{
 			display: block;
 			margin-right: 0.5em;
 			margin-top: 12px;
+			.email-label{
+				width: 0;
+			}
 		}
 		input{
 			width: 400px;
@@ -641,6 +711,7 @@ html, body{
 			padding: 5px;
 			font-size: 16px;
 		}
+		
 		.email-button{
 			width: 110px;
 			float: left;
@@ -658,6 +729,203 @@ html, body{
 		.sent-message{
 			text-align: center;
 			font-size: 1.25em;
+		}
+	}
+}
+
+//###############################################
+// MEDIA QUERIES
+//###############################################
+
+@media only screen and (max-width: 1250px) {
+	.contactplate{
+		.contactcontent{
+			.column-one, .column-two{
+				width: 100%;
+			}
+			.column-one-text{
+				margin-right: 8%;
+				margin-left: 8%;
+				padding-bottom: 35px;
+			}
+			a{
+				margin-left: 8%;
+				p{
+					margin-bottom: 35px;
+				}
+				
+			}
+			.column-two{
+				margin-top: 0;
+				label{
+					width: 85px;
+				}
+				input{
+					width: 350px;
+				}
+				textarea{
+					width: 350px;
+				}
+				.left-fields{
+					display: inline-block;
+					float: left;
+					margin-left: 5%;
+				}
+				.right-fields{
+					display: inline-block;
+					float: right;
+					margin-right: 5%;
+					.email-button{
+						width: 110px;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 768px) {
+	.contactplate{
+		.contactcontent{
+			.column-two{
+				.left-fields{
+					margin-left: 8%;
+				}
+				.right-fields{
+					float: left;
+					margin-left: 8%;
+					margin-right: 0;
+					}
+				}
+			}
+		}
+}
+@media only screen and (max-width: 590px) {
+	.aboutcontent{
+		.column-two{
+			ul{
+				li{
+					svg{
+						margin-bottom: 20px;
+					}
+					
+				}
+			}
+		}
+	}
+	.workcontent{
+		.slide-window{
+			.slide-container{
+				.outer-slide{
+					.work-description{
+						width: 80%;
+						right: 40px;
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 509px) {
+	.contactplate{
+		.contactcontent{
+			.column-one{
+				a{
+					font-size: 1.2em;
+				}
+			}
+			.column-two{
+				label{
+					text-align: left;
+					
+				}
+				label.email-label{
+					width: 0;
+				}
+			}
+		}
+	}
+	
+}
+
+@media only screen and (max-width: 420px) {
+	.nameplate{
+		.content{
+			h1{
+				font-size: 2.5em;
+			}
+			p{
+				font-size: 1em;
+			}
+		}
+		.big-name{
+			font-size: 5em;
+		}
+	}
+	body.body-active{
+		.workplate{
+			height: 400px;
+		}
+	}
+	.aboutcontent{
+		.column-one, .column-two{
+			width: 100%;
+		}
+		.column-one{
+			.column-one-text{
+				margin-left: 8%;
+			}
+		}
+		.column-two{
+			margin-top: 30px;
+			p{
+				margin-left: 8%;
+			}
+		}
+	}
+	.contactcontent{
+		.column-two{
+			.right-fields{
+				.email-button{
+					float: left;
+				}
+			}
+			
+		}
+	}
+}
+@media only screen and (max-width: 320px) {
+	.nameplate{
+		.content{
+			h1{
+				font-size: 1.6em;
+			}
+		}
+	}
+	.contactplate{
+		.contactcontent{
+			.column-one{
+				a{
+					margin-left: 5%;
+					font-size: 1em;
+				}
+				svg{
+					width: 25px;
+					height: 25px;
+					margin-right: 5px;
+				}
+			}
+			.column-two{
+				.left-fields, .right-fields{
+					margin-left: 5%;
+				}
+				input{
+					width: 265px;
+				}
+				textarea{
+					width: 265px;
+				}
+			}
 		}
 	}
 }
