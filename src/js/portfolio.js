@@ -201,44 +201,37 @@ $(document).ready(function(){
 	var isSliderOn = true;
 
 	function slider(){
-		if (isSliderOn){
-			var Parent = $(".outer-slide:nth-child(2)");
-			var targetSlider = $(Parent).find(".inner-slide");
-			var targetSlides = $(targetSlider).find(".slide:first-child");
-			slideHeight = $(".workcontent").height();
-			$(targetSlider).delay(2000).animate({"top":"-="+slideHeight+"px"},function(){
-				
+		var Parent = $(".outer-slide:nth-child(2)");
+		var targetSlider = $(Parent).find(".inner-slide");
+		var targetSlides = $(targetSlider).find(".slide:first-child");
+
+		var numOfSlides = $(targetSlider).find(".slide").length;
+
+		if (isSliderOn && numOfSlides > 1){
+			$(targetSlider).delay(2000).animate({"top":"-100%"},function(){
 				$(targetSlides).appendTo($(targetSlider));
-				$(targetSlider).css({"top":"+="+slideHeight+"px"});
+				$(targetSlider).css({"top":"0"});
 				$("body").delay(100).animate({"opacity":1},function(){
 					slider();
 				});
-				
 			});
 		}
-		
+		else{
+			$("body").delay(100).animate({"opacity":1},function(){
+				slider();
+			});
+		}
 	};
 
 	var beingResized = true;
 
 	//WORKPLATE SLIDER ON WINDOW RESIZE
 	$(window).resize(function(){
-		isSliderOn = false;
 		var slideWindowWidth = $(window).width();
 		$(".slide-container").css({"left":"-"+slideWindowWidth+"px"});
-		slideHeight = $(".workcontent").height();
-		$(".inner-slide").css({"top":"-"+ slideHeight +"px"});
-		$(".slide").css({"height":slideHeight+"px"});
-		if (beingResized){
-			beingResized = false;
-			setTimeout(function(){
-				isSliderOn = true;
-				slider();
-				beingResized = true;
-			}, 2100);
-		}
 	});
 
+	//SENDING THE EMAIL FORM
 	$(".email-button").click(function(e){
 		e.preventDefault();
 
