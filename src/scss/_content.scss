@@ -70,9 +70,25 @@ html, body{
 	color: $textcolor;
 }
 
+
 .page{
 	height: 100%;
+	overflow: hidden;
+	position: relative;
+	z-index: 5;
+}
+
+.background-picture{
 	width: 100%;
+	background: url('../img/background.jpg');
+	background-size: cover;
+	background-position: center center;
+	position: fixed;
+	z-index: 1;
+}
+
+.nameplate{
+	opacity: 0.9;
 }
 
 .nameplate h1{
@@ -89,6 +105,10 @@ html, body{
 .nameplate p{
 	font-family:"comfortaaregular";
 	letter-spacing:2px;
+}
+
+.contentplate{
+	opacity: 0.9;
 }
 
 .contentplate p{
@@ -112,7 +132,7 @@ html, body{
 	left: 50%;
 	text-align: center;
 	overflow: hidden;
-	z-index: 4;
+	z-index: 40;
 	.big-name{
 		width: 100%;
 		position: absolute;
@@ -290,8 +310,25 @@ html, body{
 }
 
 body.body-active{
+	// .page{
+	// 	background-position: fixed;
+	// 	// position: static;
+	// 	// height: 100%;
+	// 	// top: 0;
+	// 	// left: 0;
+	// 	// background-repeat: repeat-y;
+	// 	// overflow: auto;
+	// }
+	height: auto;	
+	background-attachment: fixed;
 	h1{
 		transition: none;
+	}
+	.nameplate{
+		position: static;
+		top: 0;
+		left: 0;
+		margin: 0;
 	}
 	.contentplate{
 		position: static;
@@ -312,13 +349,13 @@ body.body-active{
 	}
 	.workplate{
 		height: 450px;
-		margin-top: 150px;
+		// margin-top: 150px;
 
 		h1{
 			top: 40px;
 			color: $textpink;
 			display: block;
-			z-index: 3;
+			z-index: 30;
 		}
 		.workcontent{
 			cursor: default;
@@ -327,9 +364,13 @@ body.body-active{
 			}
 		}
 	}
+	.nameplate{
+		opacity: 0.9;
+	}
 	.aboutplate, .contactplate{
 		height: auto;
 		overflow: auto;
+		opacity: 0.9;
 		.aboutcontent, .contactcontent{
 			height: auto;
 			overflow: auto;
@@ -358,6 +399,11 @@ body.body-active{
 //###############################################
 // WORK PLATE
 //###############################################
+.workplate{
+	&.active{
+		opacity: 1;
+	}
+}
 .workcontent{
 	position: absolute;
 	width: 100%;
@@ -382,13 +428,13 @@ body.body-active{
 			  position: relative;
 			  	.work-description{
 			  		color: $textlightpink;
-				  	width: 460px;
+				  	width: 500px;
 				  	height: 200px;
 				  	position: absolute;
 				  	text-align: right;
 				  	right: 95px;
 				  	bottom: 50px;
-				  	z-index: 10;
+				  	z-index: 100;
 				  	.slide-title{
 				  		margin-bottom: 25px;
 				  		font-size: 1.5em;
@@ -397,6 +443,25 @@ body.body-active{
 				  	.slide-text{
 				  		padding-top: 25px;
 				  		border-top: 1px solid $lightestpink;
+				  		a{
+							text-decoration: none;
+							line-height: 2em;
+							color: $textlightpink;
+							font-family:"comfortaaregular";
+							transition: all 0.3s ease;
+							&:hover{
+								color: $midpink;
+							}
+						}
+				  	}
+				  	.darktext{
+				  		color: $textcolor;
+				  		a{
+				  			color: $textcolor;
+				  		}
+				  	}
+				  	.slide-text.darktext{
+				  		border-top: 1px solid $textcolor;
 				  	}
 				}
 				.inner-slide{
@@ -407,7 +472,7 @@ body.body-active{
 					.slide{
 						width: 100%;
 						height: 25%;
-						transition: all 0.3s ease;
+						// transition: all 0.3s ease;
 					}
 				}
 			}
@@ -500,7 +565,7 @@ body.body-active{
 		  position: absolute;
 		  top: 50%;
 		  transform: translate(0, -50%);
-		  z-index: 10;
+		  z-index: 100;
 		  transition: all 0.3s ease;
 		  cursor: pointer;
 		  &::before, &::after{
@@ -547,7 +612,7 @@ body.body-active{
 }
 
 .workplate{
-	z-index: 3;
+	z-index: 30;
 	.platetitle{
 		background-color: $lightpink;
 	}
@@ -567,7 +632,7 @@ body.body-active{
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	z-index: 20;
+	z-index: 200;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	&::before{
@@ -597,25 +662,32 @@ body.body-active{
 	.column-one, .column-two{
 		width: 50%;
 		height: 100%;
-		margin-top: 100px;
+		margin-top: 90px;
 		display: inline-block;
 	}
 	.column-one{
 		// margin-right: 75px;
 		float: left;
-		.column-one-text{
-			border-bottom: 1px solid $lightestpink;
-			padding-bottom: 55px;
-			margin-bottom: 30px;
+		p{
+			margin-bottom: 6px;
 			margin-left: 15%;
 			margin-right: 7.5%;
-			line-height: 1.5em;
+			line-height: 1.2em;
+		}
+		.column-one-text{
+			border-bottom: 1px solid $lightestpink;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
 		}
 		a{
 			text-decoration: none;
 			font-family:"comfortaaregular";
 			color: $textlightpink;
 			padding-left: 15%;
+			transition: all 0.3s ease;
+			&:hover{
+				color: $textcolor;
+			}
 		}
 	}
 	.column-two{
@@ -623,12 +695,13 @@ body.body-active{
 		p{
 			margin-left: 7.5%;
 			margin-right: 7.5%;
-			margin-bottom: 20px;
-			line-height: 1.5em;
+			margin-bottom: 6px;
+			line-height: 1.2em;
 		}
 		.column-two-text{
 			border-bottom: 1px solid $lightestpink;
-			padding-bottom: 55px;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
 		}
 		ul{
 			margin-left: 7.5%;
@@ -636,12 +709,18 @@ body.body-active{
 				display: inline;
 				a{
 					text-decoration: none;
+					&:hover{
+						svg{
+							fill: $textcolor;
+						}
+					}
 				}
 				svg{
 					fill: $textpink;
 					width: 35px;
 					height: 35px;
 					margin-right: 15px;
+					transition: all 0.3s ease;
 				}
 			}
 		}
@@ -650,7 +729,7 @@ body.body-active{
 }
 
 .aboutplate{
-	z-index: 2;
+	z-index: 20;
 	.platetitle{
 		background-color: $midpink;
 	}
@@ -661,7 +740,7 @@ body.body-active{
 //###############################################
 
 .contactplate{
-	z-index: 1;
+	z-index: 10;
 	.platetitle{
 		background-color: $darkpink;
 	}
@@ -674,7 +753,7 @@ body.body-active{
 	.column-one, .column-two{
 		width: 50%;
 		height: 100%;
-		margin-top: 100px;
+		margin-top: 90px;
 		display: inline-block;
 	}
 	.column-one{
@@ -693,6 +772,7 @@ body.body-active{
 			color: $textlightpink;
 			margin-left: 15%;
 			font-size: 1.5em;
+			transition: all 0.3s ease;
 			p{
 				display: inline-block;
 				margin-top: 2px;
@@ -707,6 +787,13 @@ body.body-active{
 				width: 28px;
 				height: 28px;
 				vertical-align: middle;
+				transition: all 0.3s ease;
+			}
+			&:hover{
+				color: $textcolor;
+				svg{
+					fill: $textcolor;
+				}
 			}
 		}
 	}
@@ -818,6 +905,11 @@ body.body-active{
 		}
 	}
 }
+@media only screen and (min-width: 1025px) {
+	html, body{
+		overflow: hidden;
+	}
+}
 @media only screen and (max-width: 768px) {
 	.contactplate{
 		.contactcontent{
@@ -907,9 +999,10 @@ body.body-active{
 			width: 100%;
 		}
 		.column-one{
-			.column-one-text{
+			p{
 				margin-left: 8%;
 			}
+
 		}
 		.column-two{
 			margin-top: 30px;
@@ -934,6 +1027,22 @@ body.body-active{
 		.content{
 			h1{
 				font-size: 1.6em;
+			}
+		}
+	}
+	.workcontent{
+		.slide-window{
+			.slide-container{
+				.outer-slide{
+					.work-description{
+						.slide-title{
+							margin-bottom: 10px;
+						}
+						.slide-text{
+							padding-top: 10px;
+						}
+					}
+				}
 			}
 		}
 	}

@@ -15,7 +15,8 @@ $(document).ready(function(){
 		$(".contentplate").css({position:"static",top:'auto'});
 	}
 	
-	
+	$(".background-picture").css({"height":windowHeight+"px"});
+
 	//PAGE LOAD ANIMATION
 	if (windowWidth > 1024){
 		$(".nameplate").animate({height:"250px",width:"630px",marginTop:"-125px",marginLeft:"-315px"},500,"easeOutBack",function(){
@@ -42,23 +43,23 @@ $(document).ready(function(){
 		});
 	}
 	else{
-		$(".nameplate").animate({height:"250px",width:"630px",marginTop:"-125px",marginLeft:"-315px"},500,"easeOutBack",function(){
-			$(".content h1").animate({top:"40%",opacity:1},500, 'easeOutBounce', function(){
+		$(".nameplate").animate({height:"250px",width:"630px",marginLeft:"-315px",marginTop:"-125px"},500,"easeOutBack",function(){
+			$(".content h1").animate({top:"40%",opacity:1},500, 'easeOutBounce',function(){
 				$(".content p").animate({opacity:1},500,function(){
-					$(".nameplate").animate({top:"125px"},500,function(){
+					$(".nameplate").animate({top:0,marginTop:0},500,function(){
 						$(".content h1").animate({top:"30%"},500);
-						$(".content p").animate({top:"40%",marginTop:"40px"},500);
-						$(".nameplate").animate({height:"150px",width:"100%",marginLeft:"-50%"},500,"easeOutSine",function(){
-							$(".content h1").addClass("animated");
+	 					$(".content p").animate({top:"40%",marginTop:"40px"},500);
+	 					$(".nameplate").animate({height:"150px",width:"100%",left:0,marginLeft:0},500,"easeOutSine",function(){
+	 						$(".content h1").addClass("animated");
 							$(".content p").addClass("animated");
 							$(".big-name").fadeIn("fast",function(){
-								$("body").addClass("body-active")
-								$(".contentplate").delay(500).animate({opacity:"1"});
+								$("body").addClass("body-active");
+								$(".aboutplate, .contactplate").delay(500).animate({opacity:"0.9"});
+								$(".workplate").delay(500).animate({opacity:"1"});
 								isSliderOn = true;
 								slider();
 							});
-							
-						});
+	 					});
 					});
 				});
 			});
@@ -174,6 +175,7 @@ $(document).ready(function(){
 		var plate = $(".close-button").closest(".contentplate");
 		$(".workplate .platetitle h1").fadeOut("fast");
 		$(".workcontent").fadeOut("fast",function(){
+			// $(".inner-slide").css({"top":0});
 			$(".contentplate").removeClass("active");
 			$(".contentplate").removeClass("mini");
 			$(".workplate .platetitle h1").fadeIn("slow");
@@ -229,6 +231,15 @@ $(document).ready(function(){
 	$(window).resize(function(){
 		var slideWindowWidth = $(window).width();
 		$(".slide-container").css({"left":"-"+slideWindowWidth+"px"});
+
+		windowHeight = $(window).height();
+		$(".background-picture").css({"height":windowHeight+"px"});
+	});
+
+	$(".slide-window").resize(function(){
+		var slideWindowHeight = $(window).width();
+
+		$(".slide-container").css({"left":"-"+slideWindowWidth+"px"});
 	});
 
 	//SENDING THE EMAIL FORM
@@ -264,7 +275,7 @@ $(document).ready(function(){
 		  }
 		 }).done(function(response) {
 		   console.log(response); // if you're into that sorta thing
-		   $('.contactcontent .column-two').html('<p class="sent-message">Message Sent - thanks</p>');
+		   $('.contactcontent .column-two').html('<p class="sent-message">Message sent - thanks</p>');
 
 		 });
 
