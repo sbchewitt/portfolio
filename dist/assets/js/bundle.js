@@ -241,7 +241,7 @@ $(document).ready(function(){
 							$(".workplate").animate({top:"25%"},500,function(){
 								$(".aboutplate").animate({top:"50%"},500, function(){
 									$(".contactplate").animate({top:"75%"},500, function(){
-										$(".nameplate").delay(500).animate({opacity:"1"},500,positions);
+										$(".nameplate").delay(500).animate({opacity:"0.9"},500,positions);
 									});
 								});
 							});
